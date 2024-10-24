@@ -1,6 +1,8 @@
-export const login = () => {
+export const Login = () => {
     return 
     <main className="login">
-        <form></form>
+        <form>
+            <button>Iniciar</button>
+        </form>
     </main>
 }
