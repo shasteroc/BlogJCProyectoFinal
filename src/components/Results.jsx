@@ -10,6 +10,14 @@ export const Results = () => {
 
   return (
     <main className="results">
+      <nav>
+            <ul>
+                <img src="public\Logo.png" alt="Logo.png" className="logo" />
+                <li><a href="">Sobre nosotros</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="./Login">Iniciar sesion</a></li>
+            </ul>
+        </nav>
       <table>
         <thead>
           <tr>
