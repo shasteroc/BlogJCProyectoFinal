@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export const Login = () => {
+export const Registro = () => {
   const navigate = useNavigate()
   const [error, setError] = useState(false)
 
@@ -25,19 +25,23 @@ export const Login = () => {
   return (
     <main className="login">
       <form onSubmit={submit}>
-        <h1>Inicia sesión</h1>
+        <h1>Registro de usuario</h1>
         {error ? 'Las credenciales son incorrectas':null}
         <fieldset>
-          <label>
+            <label>
+            <span>Nombre</span>
+            <input name="name" type="text" placeholder="John" required/>
+            </label>
+            <label>
             <span>Correo</span>
             <input name="email" type="email" placeholder="johndoe@email.com" required/>
             </label>
-          <label>
+            <label>
             <span>Contraseña</span>
             <input name="password" type="password" placeholder="***********" required/>
             </label>
         </fieldset>
-        <button>Iniciar sesion</button>
+        <button>Registrarse</button>
       </form>
     </main>
   )
