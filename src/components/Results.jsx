@@ -9,7 +9,7 @@ export const Results = () => {
   }, [])
 
   return (
-    <main className="login">
+    <main className="results">
       <table>
         <thead>
           <tr>

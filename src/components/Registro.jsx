@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Login } from "./Login"
 
 export const Registro = () => {
   const navigate = useNavigate()
@@ -34,14 +35,19 @@ export const Registro = () => {
             </label>
             <label>
             <span>Correo</span>
-            <input name="email" type="email" placeholder="johndoe@email.com" required/>
+            <input name="correo" type="email" placeholder="johndoe@email.com" required/>
             </label>
             <label>
             <span>Contraseña</span>
             <input name="password" type="password" placeholder="***********" required/>
             </label>
         </fieldset>
-        <button>Registrarse</button>
+        <label>
+            <button>Registrarse</button>
+        </label>
+        <label>
+            <p>¿Ya tienes cuenta? <a href="./Login"> Iniciar sesión</a></p>
+        </label>
       </form>
     </main>
   )

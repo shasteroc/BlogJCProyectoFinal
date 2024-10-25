@@ -31,7 +31,7 @@ export const Login = () => {
         <fieldset>
           <label>
             <span>Correo</span>
-            <input name="email" type="email" placeholder="johndoe@email.com" required/>
+            <input name="correo" type="email" placeholder="johndoe@email.com" required/>
             </label>
           <label>
             <span>Contraseña</span>
