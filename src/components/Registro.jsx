@@ -17,7 +17,7 @@ export const Registro = () => {
     const user = users.find(user => user.email === correo && user.password === pass)
     
     if (user) {
-      navigate('/results')
+      navigate('/Results')
     } else {
       setError(true)
     }

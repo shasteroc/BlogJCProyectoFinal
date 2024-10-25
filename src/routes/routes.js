@@ -8,15 +8,15 @@ export const router = createBrowserRouter([
     path: '/',
   },
   {
-    path: '/registro',
+    path: '/Registro',
     Component: Registro
   },
   {
-    path: '/login',
+    path: '/Login',
     Component: Login
   },
   {
-    path: '/results',
+    path: '/Results',
     Component: Results
   }
 ])
