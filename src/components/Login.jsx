@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Registro } from "./Registro"
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -37,7 +38,10 @@ export const Login = () => {
             <input name="password" type="password" placeholder="***********" required/>
             </label>
         </fieldset>
-        <button>Iniciar sesion</button>
+        <button>Iniciar sesión</button>
+        <label>
+        <p>¿No tienes cuenta? <a href="./Registro">Registrate</a></p>
+      </label>
       </form>
     </main>
   )
