@@ -129,6 +129,7 @@ nav{
   padding: 0px; 
 }
 
+
 ul{
   list-style: none;
   display: flex;
@@ -147,5 +148,4 @@ li{
   text-transform:uppercase;
   text-decoration-color:#f4f4f448;
 }
-
 
