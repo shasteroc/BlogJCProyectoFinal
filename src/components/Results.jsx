@@ -15,7 +15,6 @@ export const Results = () => {
         <li><a href="#nosotros">Sobre nosotros</a></li>
         <li><a href="">Contacto</a></li>
         <li><a href="">Destinos</a></li>
-        <li><a href="./Login">Iniciar sesion</a></li>
       </ul>
     </nav><main className="results">
 
