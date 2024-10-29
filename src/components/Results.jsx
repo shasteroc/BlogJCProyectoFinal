@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { Navbar } from "./Navbar"
+import { Footer } from "./Footer"
 
 export const Results = () => {
   const [locations, setLocations] = useState([])
@@ -9,15 +11,9 @@ export const Results = () => {
   }, [])
 
   return (
-    <><nav>
-      <ul>
-        <a href="./"><img src="public\Logo.png" alt="Logo.png" className="logo" /></a>
-        <li><a href="#nosotros">Sobre nosotros</a></li>
-        <li><a href="">Contacto</a></li>
-        <li><a href="">Destinos</a></li>
-        <li><a href="./Login">Iniciar sesion</a></li>
-      </ul>
-    </nav><main className="results">
+    <body>
+      <Navbar />
+      <main className="results">
 
         <table>
           <thead>
@@ -39,6 +35,9 @@ export const Results = () => {
             })}
           </tbody>
         </table>
-      </main></>
+      </main>
+
+      <Footer/>
+    </body>
   )
 }

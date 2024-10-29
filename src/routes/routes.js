@@ -4,6 +4,7 @@ import { Results } from "../components/Results";
 import { Registro } from "../components/Registro";
 import { LandingPage } from "../components/LandingPage";
 
+
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -17,6 +18,7 @@ export const router = createBrowserRouter([
     path: '/Login',
     Component: Login
   },
+  
   {
     path: '/Results',
     Component: Results
