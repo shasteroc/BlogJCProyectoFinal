@@ -5,8 +5,21 @@ import { Navbar } from "./Navbar"
 export const LandingPage = () => {
   return (
     <body>
+<<<<<<< HEAD
       <Navbar />
         
+=======
+        <header>
+          <nav className="nav">
+            <ul>
+                <a href="./"><img src="public\Logo.png" alt="Logo.png" className="logo" /></a>
+                <li><a href="#nosotros">Sobre nosotros</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Destinos</a></li>
+            </ul>
+          </nav>
+        </header>
+>>>>>>> dced5f4a118ddabeda88a1351bb67d74cd31010e
         <main className="landing">
             
             <div className="contenedor1">           
@@ -16,8 +29,11 @@ export const LandingPage = () => {
               <img src="src\assets\travel.png" alt="" className="image"/>
             </div>
         </main>
+<<<<<<< HEAD
 
         <Footer/>
+=======
+>>>>>>> dced5f4a118ddabeda88a1351bb67d74cd31010e
     </body>
 
     
