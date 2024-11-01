@@ -11,20 +11,9 @@ export const Results = () => {
   }, [])
 
   return (
-<<<<<<< HEAD
     <body>
       <Navbar />
       <main className="results">
-=======
-    <><nav>
-      <ul>
-        <a href="./"><img src="public\Logo.png" alt="Logo.png" className="logo" /></a>
-        <li><a href="#nosotros">Sobre nosotros</a></li>
-        <li><a href="">Contacto</a></li>
-        <li><a href="">Destinos</a></li>
-      </ul>
-    </nav><main className="results">
->>>>>>> dced5f4a118ddabeda88a1351bb67d74cd31010e
 
         <table>
           <thead>
