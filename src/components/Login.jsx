@@ -30,8 +30,9 @@ export const Login = () => {
         {error ? 'Las credenciales son incorrectas':null}
         <fieldset>
           <label>
+            <br />
             <span>Correo</span>
-            <input name="correo" type="email" placeholder="johndoe@email.com" required/>
+            <input name="correo" type="email" placeholder="ejemplo@gmail.com" required/>
             </label>
           <label>
             <span>Contraseña</span>

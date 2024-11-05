@@ -1,54 +1,78 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { Login } from "./Login"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Registro = () => {
-  const navigate = useNavigate()
-  const [error, setError] = useState(false)
+  const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const submit = async (event) => {
-    event.preventDefault()
-    const correo = event.target.elements.correo.value
-    const pass = event.target.elements.password.value
-
-    const response = await fetch('https://6622071827fcd16fa6c8818c.mockapi.io/api/v1/users')
-    const users = await response.json()
-
-    const user = users.find(user => user.email === correo && user.password === pass)
-    
-    if (user) {
-      navigate('/Results')
-    } else {
-      setError(true)
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    if (name === "name") {
+      setName(value);
+    } else if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
     }
-  }
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      name,
+      email,
+      password,
+      createdAt: new Date().toISOString(),
+      avatar: "https://avatar.iran.liara.run/public",
+    };
+    fetch(`${urlApi}/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    navigate("/login");
+  };
+
+  const goLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <main className="login">
-      <form onSubmit={submit}>
-        <h1>Registro de usuario</h1>
-        {error ? 'Las credenciales son incorrectas':null}
+      <form onSubmit={onSubmit}>
+        <h1>Registro</h1>
         <fieldset>
-            <label>
-            <span>Nombre</span>
-            <input name="name" type="text" placeholder="John" required/>
-            </label>
-            <label>
-            <span>Correo</span>
-            <input name="correo" type="email" placeholder="johndoe@email.com" required/>
-            </label>
-            <label>
-            <span>Contraseña</span>
-            <input name="password" type="password" placeholder="***********" required/>
-            </label>
+          <br />
+          <input
+            type="text"
+            placeholder="Nombre"
+            required
+            onChange={onChange}
+            name="name"
+          />
+          <input
+            type="email"
+            placeholder="Correo electrónico"
+            required
+            onChange={onChange}
+            name="email"
+          />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            required
+            onChange={onChange}
+            name="password"
+          />
         </fieldset>
-        <label>
-            <button>Registrarse</button>
-        </label>
-        <label>
-            <p>¿Ya tienes cuenta? <a href="./Login"> Iniciar sesión</a></p>
-        </label>
+        <button type="submit">Registrarse</button>
+        <p >¿Ya tienes cuenta? <a onClick={goLogin}>inicia sesión</a></p>
       </form>
     </main>
-  )
-}
+  );
+};
