@@ -39,7 +39,7 @@ export const Blog = () => {
     <body>
       < Navbar />
       <NuevoBlog/>
-      <main className="login mainB">
+      <main className="mainB">
         {blogs.map((blogs) => (
           <div className="blog">
             <h4>{blogs.name}</h4>

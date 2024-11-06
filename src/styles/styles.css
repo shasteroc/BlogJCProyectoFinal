@@ -138,6 +138,7 @@ img{
 ul{
   list-style: none;
   display: flex;
+  justify-content: center;
   padding: 0px;
   margin: 0px;
 }
@@ -148,23 +149,18 @@ ul{
   border-radius: 100px;
   padding: 3px;
   margin: 3px;
-  margin-left: 30px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  top: 18%;
-
 }
 
 li{
-  padding: 50px;
+  padding: 20px;
   text-decoration:overline;
-  text-align: center;
-  text-transform:uppercase;
-  text-decoration-color:#f4f4f448;
-  margin-left: 80px;
   display: flex;
   justify-content: center;
+  text-transform:uppercase;
+  text-decoration-color:#f4f4f448;
+  text-align: center;
+  margin-left: 90px;
+  margin-right: 90px;
 }
 
 body{
@@ -304,4 +300,9 @@ main{
   border-radius: 20px;
   margin: 20px 400px 0px 400px;
   padding: 50px;
+}
+
+h4, small{
+  padding: 10px;
+  padding-left: 20px;
 }

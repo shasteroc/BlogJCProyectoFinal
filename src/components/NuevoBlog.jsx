@@ -90,7 +90,7 @@ export const NuevoBlog = () => {
         <button type="submit" className="publicar">Publicar</button>
       </form>
 
-      <div className="login">
+      <div className="divB">
         {blogs.map((blogs) =>
           toEditBlogs && toEditBlogs.id === blogs.id ? (
             <div className="blogs" key={blogs.id}>
