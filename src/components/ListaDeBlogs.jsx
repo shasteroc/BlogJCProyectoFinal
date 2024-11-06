@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
+import { NuevoBlog } from "./NuevoBlog";
 
 export const Blog = () => {
   const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
@@ -33,31 +34,20 @@ export const Blog = () => {
     getBlogs();
   }, [users]);
 
-  const goToNewBlog = () => {
-    navigate("/nuevoBlog");
-  };
 
   return (
     <body>
       < Navbar />
-      <main className="login">
-        <h2>Timeline</h2>
-        <button onClick={() => goToNewBlog()}>Nuevo Blog</button>
+      <NuevoBlog/>
+      <main className="login mainB">
         {blogs.map((blogs) => (
-          <div key={blogs.id} className="blogs">
-            {blogs.user && (
-              <a href={`/users/${blogs.user.id}`}>
-                <img src={`${blogs.user?.avatar}/${blogs.user?.id}`} alt="avatar" />
-              </a>
-            )}
-            <div className="blog">
-              <h4>{blogs.name}</h4>
-              <p>{blogs.location}</p>
-              <p>{blogs.review}</p>
-              <p>{blogs.rating}</p>
-              <img src={blogs.imageUrl} alt="" />
-              <small>publicado por: {blogs.creator}</small>
-            </div>
+          <div className="blog">
+            <h4>{blogs.name}</h4>
+            <p>{blogs.location}</p>
+            <p>{blogs.review}</p>
+            <p>{blogs.rating}</p>
+            <img src={blogs.imageUrl} alt="" />
+            <small>publicado por: {blogs.creator}</small>
           </div>
         ))}
       </main>

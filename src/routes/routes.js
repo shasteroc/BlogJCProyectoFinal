@@ -4,7 +4,6 @@ import { Results } from "../components/Results";
 import { Registro } from "../components/Registro";
 import { LandingPage } from "../components/LandingPage";
 import { Blog } from "../components/ListaDeBlogs";
-import { NuevoBlog } from "../components/NuevoBlog";
 
 
 
@@ -24,10 +23,6 @@ export const router = createBrowserRouter([
   {
     path: '/Blog',
     Component: Blog
-  },
-  {
-    path: '/NuevoBlog',
-    Component: NuevoBlog
   },
   {
     path: '/Results',

@@ -70,22 +70,24 @@ export const NuevoBlog = () => {
   };
 
   return (
-    <div className="login">
-      <h2>Nuevo Post</h2>
-      <h3>Tienes {blogs.length} Blogs Publicados</h3>
-      <form onSubmit={onSubmit}>
+    <div>
+      <form onSubmit={onSubmit} className="newBlog">
+        <h3 className="newB">Nuevo Blog</h3>
+        <small className="num">Tienes {blogs.length} Blogs Publicados</small>
         <input
           type="text"
           placeholder="Titulo"
           name="title"
           onChange={onChange}
+          className="input"
         ></input>
         <textarea
           placeholder="Contenido"
           name="content"
           onChange={onChange}
+          className="textarea"
         ></textarea>
-        <button type="submit">Publicar</button>
+        <button type="submit" className="publicar">Publicar</button>
       </form>
 
       <div className="login">
