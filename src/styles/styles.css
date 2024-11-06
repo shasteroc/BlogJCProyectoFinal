@@ -248,3 +248,7 @@ h3{
   columns: 3;
   margin-top: 10px;
 }
+
+main{
+  padding: 100px;
+}
