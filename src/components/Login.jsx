@@ -1,10 +1,13 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Registro } from "./Registro"
 
 export const Login = () => {
   const navigate = useNavigate()
   const [error, setError] = useState(false)
+
+  function registro() {
+    navigate('/Registro');
+  }
 
   const submit = async (event) => {
     event.preventDefault()
@@ -41,7 +44,7 @@ export const Login = () => {
         </fieldset>
         <button>Iniciar sesión</button>
         <label>
-        <p>¿No tienes cuenta? <a href="./Registro">Registrate</a></p>
+        <p>¿No tienes cuenta? <a onClick={() => registro()}>Registrate</a></p>
       </label>
       </form>
     </main>

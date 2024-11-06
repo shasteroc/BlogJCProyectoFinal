@@ -67,8 +67,11 @@ p{
 a{
   text-decoration: none;
   color:  rgba(255,255,255,1);
-  padding: 10px;
+  padding: 0px;
+  margin: 0px;
   cursor: pointer;
+  width: 200px;
+  height: 20px;
 }
 
 a:hover{
@@ -144,7 +147,7 @@ ul{
 }
 
 .logo{
-  width: 70px;
+  width: 30px;
   box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
   border-radius: 100px;
   padding: 3px;
@@ -152,15 +155,21 @@ ul{
 }
 
 li{
-  padding: 20px;
+  padding: 0px;
   text-decoration:overline;
   display: flex;
   justify-content: center;
   text-transform:uppercase;
   text-decoration-color:#f4f4f448;
   text-align: center;
-  margin-left: 90px;
-  margin-right: 90px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.li{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 15px;
 }
 
 body{
@@ -291,8 +300,8 @@ main{
 
 .mainB{
   display: inline;
-  margin: 20px;
-  padding: 20px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .blog{

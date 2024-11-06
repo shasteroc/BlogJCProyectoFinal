@@ -8,7 +8,7 @@ export const Registro = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const onChange = (e) => {
+  function onChange(e) {
     const { name, value } = e.target;
     if (name === "name") {
       setName(value);
@@ -17,7 +17,7 @@ export const Registro = () => {
     } else if (name === "password") {
       setPassword(value);
     }
-  };
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
