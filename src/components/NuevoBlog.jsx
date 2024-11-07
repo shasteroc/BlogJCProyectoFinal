@@ -83,77 +83,82 @@ export const NuevoBlog = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit} className="newBlog">
-        <h3 className="newB">Nuevo Blog</h3>
-        <small className="num">Tienes {blogs.length} Blogs Publicados</small>
-        <input
-          type="text"
-          placeholder="name"
-          name="name"
-          onChange={onChange}
-          className="input"
-        ></input>
-        <input
-          type="text"
-          placeholder="location"
-          name="location"
-          onChange={onChange}
-          className="input"
-        ></input>
-        <textarea
-          placeholder="review"
-          name="review"
-          onChange={onChange}
-          className="textarea"
-        ></textarea>
-        <input
-          type="number"
-          placeholder="rating"
-          name="rating"
-          onChange={onChange}
-          className="input"
-        ></input>
-        <input
-          type="url"
-          placeholder="imageURl"
-          name="imageURl"
-          onChange={onChange}
-          className="input"
-        ></input>
-        <button type="submit" className="publicar">Publicar</button>
-      </form>
+    <body>
+      <main>
+    
+        <div className="contenedor-responsive">
+          <form onSubmit={onSubmit} className="newBlog">
+            <h3 className="newB">Nuevo Blog</h3>
+            <small className="num">Tienes {blogs.length} Blogs Publicados</small>
+            <input
+              type="text"
+              placeholder="name"
+              name="name"
+              onChange={onChange}
+              className="input"
+            ></input>
+            <input
+              type="text"
+              placeholder="location"
+              name="location"
+              onChange={onChange}
+              className="input"
+            ></input>
+            <textarea
+              placeholder="review"
+              name="review"
+              onChange={onChange}
+              className="textarea"
+            ></textarea>
+            <input
+              type="number"
+              placeholder="rating"
+              name="rating"
+              onChange={onChange}
+              className="input"
+            ></input>
+            <input
+              type="url"
+              placeholder="imageURl"
+              name="imageURl"
+              onChange={onChange}
+              className="input"
+            ></input>
+            <button type="submit" className="publicar">Publicar</button>
+          </form>
 
-      <div className="divB">
-        {blogs.map((blogs) =>
-          toEditBlogs && toEditBlogs.id === blogs.id ? (
-            <div className="blogs" key={blogs.id}>
-              <input type="text" value={toEditBlogs.name} onChange={(e) => setToEditBlogs({ ...toEditBlogs, name: e.target.value })} />
-              <input type="text" value={toEditBlogs.location} onChange={(e) => setToEditBlogs({ ...toEditBlogs, location: e.target.value })} />
-              <textarea type="text" value={toEditBlogs.review} onChange={(e) => setToEditBlogs({ ...toEditBlogs, content: e.target.value })} />
-              <input type="number" value={toEditBlogs.rating} onChange={(e) => setToEditBlogs({ ...toEditBlogs, rating: e.target.value })} />
-              <input type="url" value={toEditBlogs.imageUrl} onChange={(e) => setToEditBlogs({ ...toEditBlogs, imageUrl: e.target.value })} />
-              <button onClick={() => sendToEditBlogs()}>Guardar</button>
-            </div>
-          ) : (
-            <div className="blogs" key={blogs.id}>
-              <div className="actions">
-                <div className="action" onClick={() => deleteBlogs(blogs.id)}>
-                  <DeleteIcon />
+          <div className="divB">
+            {blogs.map((blogs) =>
+              toEditBlogs && toEditBlogs.id === blogs.id ? (
+                <div className="blogs" key={blogs.id}>
+                  <input type="text" value={toEditBlogs.name} onChange={(e) => setToEditBlogs({ ...toEditBlogs, name: e.target.value })} />
+                  <input type="text" value={toEditBlogs.location} onChange={(e) => setToEditBlogs({ ...toEditBlogs, location: e.target.value })} />
+                  <textarea type="text" value={toEditBlogs.review} onChange={(e) => setToEditBlogs({ ...toEditBlogs, content: e.target.value })} />
+                  <input type="number" value={toEditBlogs.rating} onChange={(e) => setToEditBlogs({ ...toEditBlogs, rating: e.target.value })} />
+                  <input type="url" value={toEditBlogs.imageUrl} onChange={(e) => setToEditBlogs({ ...toEditBlogs, imageUrl: e.target.value })} />
+                  <button onClick={() => sendToEditBlogs()}>Guardar</button>
                 </div>
-                <div className="action" onClick={() => editBlogs(blogs.id)}>
-                  <EditIcon />
+              ) : (
+                <div className="blogs" key={blogs.id}>
+                  <div className="actions">
+                    <div className="action" onClick={() => deleteBlogs(blogs.id)}>
+                      <DeleteIcon />
+                    </div>
+                    <div className="action" onClick={() => editBlogs(blogs.id)}>
+                      <EditIcon />
+                    </div>
+                  </div>
+                  <h4>{blogs.name}</h4>
+                  <h5>{blogs.location}</h5>
+                  <p>{blogs.review}</p>
+                  <p>{blogs.rating}</p>
+                  <p>{blogs.imageUrl}</p>
                 </div>
-              </div>
-              <h4>{blogs.name}</h4>
-              <h5>{blogs.location}</h5>
-              <p>{blogs.review}</p>
-              <p>{blogs.rating}</p>
-              <p>{blogs.imageUrl}</p>
-            </div>
-          )
-        )}
-      </div>
-    </div>
+              )
+            )}
+          </div>
+        </div>
+      </main>
+    </body>
   );
 };

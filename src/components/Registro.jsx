@@ -44,35 +44,37 @@ export const Registro = () => {
 
   return (
     <main className="login">
-      <form onSubmit={onSubmit}>
-        <h1>Registro</h1>
-        <fieldset>
-          <br />
-          <input
-            type="text"
-            placeholder="Nombre"
-            required
-            onChange={onChange}
-            name="name"
-          />
-          <input
-            type="email"
-            placeholder="Correo electrónico"
-            required
-            onChange={onChange}
-            name="email"
-          />
-          <input
-            type="password"
-            placeholder="Contraseña"
-            required
-            onChange={onChange}
-            name="password"
-          />
-        </fieldset>
-        <button type="submit">Registrarse</button>
-        <p >¿Ya tienes cuenta? <a onClick={goLogin}>inicia sesión</a></p>
-      </form>
+      <div className="contenedor-responsive">
+      < form onSubmit={onSubmit}>
+          <h1>Registro</h1>
+          <fieldset>
+            <br />
+            <input
+              type="text"
+              placeholder="Nombre"
+              required
+              onChange={onChange}
+              name="name"
+            />
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              required
+              onChange={onChange}
+              name="email"
+            />
+            <input
+              type="password"
+              placeholder="Contraseña"
+              required
+              onChange={onChange}
+              name="password"
+            />
+          </fieldset>
+          <button type="submit">Registrarse</button>
+          <p >¿Ya tienes cuenta? <a onClick={goLogin}>inicia sesión</a></p>
+        </form>
+      </div>
     </main>
   );
 };
