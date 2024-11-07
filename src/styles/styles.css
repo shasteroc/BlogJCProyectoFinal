@@ -117,8 +117,7 @@ tr:hover {
   height: 100vh;
   align-items: center;
   justify-content: center;
-  padding-left: 5px;
-  margin: 20px;
+  padding: 0px;
 }
 
 img{
@@ -186,7 +185,8 @@ body{
 
 .contenedor1{
   columns: 2;
-  padding-top: 8%;
+  padding-top: 40px;
+  margin-right: 50px;
 }
 
 span{

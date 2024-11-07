@@ -4,35 +4,48 @@ import { EditIcon } from "./editIcon";
 
 export const NuevoBlog = () => {
   const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [review, setReview] = useState("");
+  const [rating, setRating] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [creator, setCreator] = useState("");
   const [blogs, setBlogs] = useState([]);
-  const [user, setUser] = useState({});
   const [toEditBlogs, setToEditBlogs] = useState(null);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setUser(user);
+    const creator = JSON.parse(localStorage.getItem("creator"));
+    setCreator(creator);
     fetch(`${urlApi}/blogs`)
       .then((response) => response.json())
-      .then((data) => setPosts(data.filter((blogs) => blogs.userId === user.id)));
+      .then((data) => setBlogs(data.filter((blogs) => blogs.creatorId === creator.id)));
   }, []);
 
   const onChange = (e) => {
-    const { name,review, value } = e.target;
-    if (name === "title") {
-      setTitle(value);
-    } else if (review === "content") {
-      setContent(value);
+    const { name,location,review,rating,imageUrl, value } = e.target;
+    if (name === "name") {
+      setName(value);
+    } else if (location === "location") {
+      setLocation(value);
+    }else if (review == "review"){
+      setReview(value)
+    }else if (rating == "rating"){
+      setRating(value)
+    }
+    else if (imageUrl == "imageUrl"){
+      setImageUrl(value)
     }
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
     const data = {
-      title,
-      content,
-      userId: user.id,
+      name,
+      location,
+      review,
+      rating,
+      imageUrl,
+      creatorId: creator.id,
     };
     const blogsCreated = await fetch(`${urlApi}/blogs`, {
       method: "POST",
@@ -76,17 +89,38 @@ export const NuevoBlog = () => {
         <small className="num">Tienes {blogs.length} Blogs Publicados</small>
         <input
           type="text"
-          placeholder="Titulo"
-          name="title"
+          placeholder="name"
+          name="name"
+          onChange={onChange}
+          className="input"
+        ></input>
+        <input
+          type="text"
+          placeholder="location"
+          name="location"
           onChange={onChange}
           className="input"
         ></input>
         <textarea
-          placeholder="Contenido"
-          name="content"
+          placeholder="review"
+          name="review"
           onChange={onChange}
           className="textarea"
         ></textarea>
+        <input
+          type="number"
+          placeholder="rating"
+          name="rating"
+          onChange={onChange}
+          className="input"
+        ></input>
+        <input
+          type="url"
+          placeholder="imageURl"
+          name="imageURl"
+          onChange={onChange}
+          className="input"
+        ></input>
         <button type="submit" className="publicar">Publicar</button>
       </form>
 
@@ -94,8 +128,11 @@ export const NuevoBlog = () => {
         {blogs.map((blogs) =>
           toEditBlogs && toEditBlogs.id === blogs.id ? (
             <div className="blogs" key={blogs.id}>
-              <input type="text" value={toEditBlogs.title} onChange={(e) => setToEditBlogs({ ...toEditBlogs, title: e.target.value })} />
-              <input type="text" value={toEditBlogs.content} onChange={(e) => setToEditBlogs({ ...toEditBlogs, content: e.target.value })} />
+              <input type="text" value={toEditBlogs.name} onChange={(e) => setToEditBlogs({ ...toEditBlogs, name: e.target.value })} />
+              <input type="text" value={toEditBlogs.location} onChange={(e) => setToEditBlogs({ ...toEditBlogs, location: e.target.value })} />
+              <textarea type="text" value={toEditBlogs.review} onChange={(e) => setToEditBlogs({ ...toEditBlogs, content: e.target.value })} />
+              <input type="number" value={toEditBlogs.rating} onChange={(e) => setToEditBlogs({ ...toEditBlogs, rating: e.target.value })} />
+              <input type="url" value={toEditBlogs.imageUrl} onChange={(e) => setToEditBlogs({ ...toEditBlogs, imageUrl: e.target.value })} />
               <button onClick={() => sendToEditBlogs()}>Guardar</button>
             </div>
           ) : (
@@ -108,8 +145,11 @@ export const NuevoBlog = () => {
                   <EditIcon />
                 </div>
               </div>
-              <h4>{blogs.title}</h4>
-              <p>{blogs.content}</p>
+              <h4>{blogs.name}</h4>
+              <h5>{blogs.location}</h5>
+              <p>{blogs.review}</p>
+              <p>{blogs.rating}</p>
+              <p>{blogs.imageUrl}</p>
             </div>
           )
         )}
