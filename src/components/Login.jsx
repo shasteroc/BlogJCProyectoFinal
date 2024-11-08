@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Navbar } from "./Navbar"
 
 export const Login = () => {
   const navigate = useNavigate()
@@ -27,26 +28,29 @@ export const Login = () => {
   }
 
   return (
-    <main className="login">
-      <form onSubmit={submit}>
-        <h1>Inicia sesión</h1>
-        {error ? 'Las credenciales son incorrectas':null}
-        <fieldset>
-          <label>
-            <br />
-            <span>Correo</span>
-            <input name="correo" type="email" placeholder="ejemplo@gmail.com" required/>
+    <body>
+      <Navbar/>
+      <main className="login">
+        <form onSubmit={submit}>
+          <h1>Inicia sesión</h1>
+          {error ? 'Las credenciales son incorrectas':null}
+          <fieldset>
+            <label>
+              <br />
+              <span>Correo</span>
+              <input name="correo" type="email" placeholder="ejemplo@gmail.com" required/>
             </label>
-          <label>
-            <span>Contraseña</span>
-            <input name="password" type="password" placeholder="***********" required/>
+            <label>
+              <span>Contraseña</span>
+              <input name="password" type="password" placeholder="***********" required/>
             </label>
-        </fieldset>
-        <button>Iniciar sesión</button>
-        <label>
-        <p>¿No tienes cuenta? <a onClick={() => registro()}>Registrate</a></p>
-      </label>
-      </form>
-    </main>
+          </fieldset>
+          <button>Iniciar sesión</button>
+          <label>
+          <p>¿No tienes cuenta? <a onClick={() => registro()}>Registrate</a></p>
+        </label>
+        </form>
+      </main>
+    </body>
   )
 }

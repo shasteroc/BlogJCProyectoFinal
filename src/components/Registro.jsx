@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 export const Registro = () => {
   const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
@@ -43,38 +44,41 @@ export const Registro = () => {
   };
 
   return (
-    <main className="login">
-      <div className="contenedor-responsive">
-      < form onSubmit={onSubmit}>
-          <h1>Registro</h1>
-          <fieldset>
-            <br />
-            <input
+    <body>
+      <Navbar />
+      <main className="login">
+        <div className="contenedor-responsive">
+        < form onSubmit={onSubmit}>
+            <h1>Registro</h1>
+            <fieldset>
+              <br />
+              <input
               type="text"
               placeholder="Nombre"
               required
               onChange={onChange}
               name="name"
             />
-            <input
+              <input
               type="email"
               placeholder="Correo electrónico"
               required
               onChange={onChange}
               name="email"
             />
-            <input
+              <input
               type="password"
               placeholder="Contraseña"
               required
               onChange={onChange}
               name="password"
             />
-          </fieldset>
-          <button type="submit">Registrarse</button>
-          <p >¿Ya tienes cuenta? <a onClick={goLogin}>inicia sesión</a></p>
-        </form>
-      </div>
-    </main>
+            </fieldset>
+            <button type="submit">Registrarse</button>
+            <p >¿Ya tienes cuenta? <a onClick={goLogin}>inicia sesión</a></p>
+          </form>
+        </div>
+      </main>
+    </body>
   );
 };
