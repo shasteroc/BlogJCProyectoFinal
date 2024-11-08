@@ -6,7 +6,7 @@ export const Login = () => {
   const [error, setError] = useState(false)
 
   function registro() {
-    navigate('/Registro');
+    navigate('/BlogJCProyectoFinal/Registro');
   }
 
   const submit = async (event) => {

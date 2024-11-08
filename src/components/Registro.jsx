@@ -39,7 +39,7 @@ export const Registro = () => {
   };
 
   const goLogin = () => {
-    navigate("/login");
+    navigate("/BlogJCProyectoFinal/Login");
   };
 
   return (

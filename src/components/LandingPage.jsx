@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const LandingPage = () => {
   const navigate = useNavigate();
   function sesion() {
-    navigate('/Login');
+    navigate('/BlogJCProyectoFinal/Login');
   }
   return (
     <body>
