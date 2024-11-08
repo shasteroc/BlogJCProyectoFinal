@@ -20,7 +20,7 @@ export const Login = () => {
     const user = users.find(user => user.email === correo && user.password === pass)
     
     if (user) {
-      navigate('/Blog')
+      navigate('/BlogJCProyectoFinal/Blog')
     } else {
       setError(true)
     }
