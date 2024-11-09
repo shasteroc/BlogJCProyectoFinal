@@ -47,6 +47,7 @@ export const NuevoBlog = () => {
       imageUrl,
       creatorId: creator.id,
     };
+
     const blogsCreated = await fetch(`${urlApi}/blogs`, {
       method: "POST",
       headers: {
@@ -84,42 +85,43 @@ export const NuevoBlog = () => {
 
   return (
     <body>
-      <main>
-    
-        <div className="contenedor-responsive">
+      <main id="home">
+        <div className="contenedor-responsive" >
           <form onSubmit={onSubmit} className="newBlog">
             <h3 className="newB">Nuevo Blog</h3>
             <small className="num">Tienes {blogs.length} Blogs Publicados</small>
             <input
               type="text"
-              placeholder="name"
+              placeholder="Lugar"
               name="name"
               onChange={onChange}
               className="input"
             ></input>
             <input
               type="text"
-              placeholder="location"
+              placeholder="Pais"
               name="location"
               onChange={onChange}
               className="input"
             ></input>
             <textarea
-              placeholder="review"
+              placeholder="Reseña"
               name="review"
               onChange={onChange}
               className="textarea"
             ></textarea>
             <input
               type="number"
-              placeholder="rating"
+              placeholder="Calificacion del 1 al 10"
+              min="1"
+              max="10"
               name="rating"
               onChange={onChange}
               className="input"
             ></input>
             <input
               type="url"
-              placeholder="imageURl"
+              placeholder="URL de la imagen"
               name="imageURl"
               onChange={onChange}
               className="input"

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Footer } from "./Footer";
-import { Navbar } from "./Navbar";
 import { NuevoBlog } from "./NuevoBlog";
+import { NavbarLogin } from "./NavbarLogin";
+//import { Navigate } from "react-router-dom";
 
 export const Blog = () => {
   const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
   const [blogs, setBlogs] = useState([]);
   const [users, setUsers] = useState([]);
-
 
   const getUsers = async () => {
     const response = await fetch(`${urlApi}/users`);
@@ -36,7 +36,8 @@ export const Blog = () => {
 
   return (
     <body>
-      < Navbar />
+      < NavbarLogin />
+      
       <NuevoBlog/>
       <main className="mainB">
         {blogs.map((blogs) => (
