@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Footer } from "./Footer";
 import { NuevoBlog } from "./NuevoBlog";
 import { NavbarLogin } from "./NavbarLogin";
-//import { Navigate } from "react-router-dom";
 
 export const Blog = () => {
   const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
@@ -35,23 +34,21 @@ export const Blog = () => {
 
 
   return (
-    <body>
-      < NavbarLogin />
-      
-      <NuevoBlog/>
+      <><NavbarLogin />
+      <NuevoBlog />
       <main className="mainB">
-        {blogs.map((blogs) => (
-          <div className="blog">
-            <h4>{blogs.name}</h4>
-            <p>{blogs.location}</p>
-            <p>{blogs.review}</p>
-            <p>{blogs.rating}</p>
-            <img src={blogs.imageUrl} alt="" />
-            <small>publicado por: {blogs.creator}</small>
-          </div>
-        ))}
-      </main>
-      < Footer />
-    </body>
+      {blogs.map((blogs) => (
+        <div className="blog">
+          <h4>{blogs.name}</h4>
+          <p>{blogs.location}</p>
+          <p>{blogs.review}</p>
+          <p>{blogs.rating}</p>
+          <img src={blogs.imageUrl} alt="" />
+          <small>publicado por: {blogs.creator}</small>
+        </div>
+      ))}
+    </main>
+    <Footer /></>
+
   );
 };

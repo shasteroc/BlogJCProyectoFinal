@@ -9,30 +9,29 @@ export const NuevoBlog = () => {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [creator, setCreator] = useState("");
-  const [blogs, setBlogs] = useState([]);
-  const [toEditBlogs, setToEditBlogs] = useState(null);
+  const [creator, setCreator] = useState({});
+  const [blog, setBlog] = useState([]);
+  const [toEditBlog, setToEditBlog] = useState(null);
 
   useEffect(() => {
     const creator = JSON.parse(localStorage.getItem("creator"));
     setCreator(creator);
     fetch(`${urlApi}/blogs`)
       .then((response) => response.json())
-      .then((data) => setBlogs(data.filter((blogs) => blogs.creatorId === creator.id)));
+      .then((data) => setBlog(data.filter((blog) => blog.creator === blog.id)));
   }, []);
 
   const onChange = (e) => {
-    const { name,location,review,rating,imageUrl, value } = e.target;
+    const { name, value } = e.target;
     if (name === "name") {
       setName(value);
-    } else if (location === "location") {
+    } else if (name === "location") {
       setLocation(value);
-    }else if (review == "review"){
+    }else if (name == "review"){
       setReview(value)
-    }else if (rating == "rating"){
+    }else if (name == "rating"){
       setRating(value)
-    }
-    else if (imageUrl == "imageUrl"){
+    }else if (name == "imageUrl"){
       setImageUrl(value)
     }
   };
@@ -45,51 +44,50 @@ export const NuevoBlog = () => {
       review,
       rating,
       imageUrl,
-      creatorId: creator.id,
+      creator: blog.id,
     };
 
-    const blogsCreated = await fetch(`${urlApi}/blogs`, {
+    const blogCreated = await fetch(`${urlApi}/blogs`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    setBlogs([...blogs, await blogsCreated.json()]);
+    setBlog([...blog, await blogCreated.json()]);
   };
 
-  const deleteBlogs = (id) => {
+  const deleteBlog = (id) => {
     fetch(`${urlApi}/blogs/${id}`, {
       method: "DELETE",
     });
-    setBlogs(blogs.filter((blogs) => blogs.id !== id));
+    setBlog(blog.filter((blog) => blog.id !== id));
   };
 
-  const editBlogs = (id) => {
-    const blogs = blogs.find((blogs) => blogs.id === id);
-    setToEditBlogs(blogs);
+  const editBlog = (id) => {
+    const blog = blog.find((blog) => blog.id === id);
+    setToEditBlog(blog);
   };
 
-  const sendToEditBlogs = async () => {
-    const blogsEdited = await fetch(`${urlApi}/blogs/${toEditBlogs.id}`, {
+  const sendToEditBlog = async () => {
+    const blogEdited = await fetch(`${urlApi}/blogs/${toEditBlog.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(toEditBlogs),
+      body: JSON.stringify(toEditBlog),
     });
-    const blogsEditedJson = await blogsEdited.json();
-    setBlogs(blogs.map((blogs) => (blogs.id === blogsEditedJson.id ? blogsEditedJson : blogs)));
-    setToEditBlogs(null);
+    const blogEditedJson = await blogEdited.json();
+    setBlog(blog.map((blog) => (blog.id === blogEditedJson.id ? blogEditedJson : blog)));
+    setToEditBlog(null);
   };
 
   return (
-    <body>
       <main id="home">
         <div className="contenedor-responsive" >
           <form onSubmit={onSubmit} className="newBlog">
             <h3 className="newB">Nuevo Blog</h3>
-            <small className="num">Tienes {blogs.length} Blogs Publicados</small>
+            <small className="num">Tienes {blog.length} Blogs Publicados</small>
             <input
               type="text"
               placeholder="Lugar"
@@ -128,39 +126,37 @@ export const NuevoBlog = () => {
             ></input>
             <button type="submit" className="publicar">Publicar</button>
           </form>
-
           <div className="divB">
-            {blogs.map((blogs) =>
-              toEditBlogs && toEditBlogs.id === blogs.id ? (
-                <div className="blogs" key={blogs.id}>
-                  <input type="text" value={toEditBlogs.name} onChange={(e) => setToEditBlogs({ ...toEditBlogs, name: e.target.value })} />
-                  <input type="text" value={toEditBlogs.location} onChange={(e) => setToEditBlogs({ ...toEditBlogs, location: e.target.value })} />
-                  <textarea type="text" value={toEditBlogs.review} onChange={(e) => setToEditBlogs({ ...toEditBlogs, content: e.target.value })} />
-                  <input type="number" value={toEditBlogs.rating} onChange={(e) => setToEditBlogs({ ...toEditBlogs, rating: e.target.value })} />
-                  <input type="url" value={toEditBlogs.imageUrl} onChange={(e) => setToEditBlogs({ ...toEditBlogs, imageUrl: e.target.value })} />
-                  <button onClick={() => sendToEditBlogs()}>Guardar</button>
+            {blog.map((blog) =>
+              toEditBlog && toEditBlog.id === blog.id ? (
+                <div className="blogs" key={blog.id}>
+                  <input type="text" value={toEditBlog.name} onChange={(e) => setToEditBlog({ ...toEditBlog, name: e.target.value })} />
+                  <input type="text" value={toEditBlog.location} onChange={(e) => setToEditBlog({ ...toEditBlog, location: e.target.value })} />
+                  <textarea type="text" value={toEditBlog.review} onChange={(e) => setToEditBlog({ ...toEditBlog, content: e.target.value })} />
+                  <input type="number" value={toEditBlog.rating} onChange={(e) => setToEditBlog({ ...toEditBlog, rating: e.target.value })} />
+                  <input type="url" value={toEditBlog.imageUrl} onChange={(e) => setToEditBlog({ ...toEditBlog, imageUrl: e.target.value })} />
+                  <button onClick={() => sendToEditBlog()}>Guardar</button>
                 </div>
               ) : (
-                <div className="blogs" key={blogs.id}>
+                <div className="blogs" key={blog.id}>
                   <div className="actions">
-                    <div className="action" onClick={() => deleteBlogs(blogs.id)}>
+                    <div className="action" onClick={() => deleteBlog(blog.id)}>
                       <DeleteIcon />
                     </div>
-                    <div className="action" onClick={() => editBlogs(blogs.id)}>
+                    <div className="action" onClick={() => editBlog(blog.id)}>
                       <EditIcon />
                     </div>
                   </div>
-                  <h4>{blogs.name}</h4>
-                  <h5>{blogs.location}</h5>
-                  <p>{blogs.review}</p>
-                  <p>{blogs.rating}</p>
-                  <p>{blogs.imageUrl}</p>
+                  <h4>{blog.name}</h4>
+                  <h5>{blog.location}</h5>
+                  <p>{blog.review}</p>
+                  <p>{blog.rating}</p>
+                  <p>{blog.imageUrl}</p>
                 </div>
               )
             )}
           </div>
         </div>
       </main>
-    </body>
   );
 };
