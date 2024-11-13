@@ -16,7 +16,7 @@ export const LandingPage = () => {
         <h1> <br /> Bienvenido a <em>Travel</em> <br />el Blog de tus Destinos Turisticos</h1>
         <p className="p">En este blog podras calificar el destino turistico en el que estuviste <br /> <button onClick={() => sesion()}>Iniciar sesion</button></p>
 
-        <img src="src\assets\travel.png" alt="Travel" className="image" />
+        <img src="public\travel.png" alt="Travel" className="image" />
       </div>
     </main>
     <Footer /></>

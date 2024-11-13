@@ -43,7 +43,7 @@ export const Blog = () => {
           <p>{blogs.location}</p>
           <p>{blogs.review}</p>
           <p>{blogs.rating}</p>
-          <img src={blogs.imageUrl} alt="" />
+          <img src={blogs.imageUrl} alt="" className="imgblog" />
           <small>publicado por: {blogs.creator}</small>
         </div>
       ))}
