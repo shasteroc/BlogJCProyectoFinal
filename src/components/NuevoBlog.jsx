@@ -81,13 +81,14 @@ export const NuevoBlog = () => {
     setBlog(blog.map((blog) => (blog.id === blogEditedJson.id ? blogEditedJson : blog)));
     setToEditBlog(null);
   };
+  const blogs = (`${urlApi}/blogs`);
 
   return (
       <main id="home">
         <div className="contenedor-responsive" >
           <form onSubmit={onSubmit} className="newBlog">
             <h3 className="newB">Nuevo Blog</h3>
-            <small className="num">Tienes {blog.length} Blogs Publicados</small>
+            <small className="num">Hay {blogs.length} Blogs Publicados</small>
             <input
               type="text"
               placeholder="Lugar"
@@ -118,7 +119,7 @@ export const NuevoBlog = () => {
               className="input"
             ></input>
             <input
-              type="url"
+              type="text"
               placeholder="URL de la imagen"
               name="imageURl"
               onChange={onChange}
