@@ -47,8 +47,7 @@ export const Blog = () => {
           <small>publicado por: {blogs.creator} {blogs.userId}</small>
         </div>
       ))}
-    </main>
-    <Footer /></>
+    </main></>
 
   );
 };

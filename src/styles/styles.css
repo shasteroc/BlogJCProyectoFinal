@@ -162,8 +162,7 @@ li{
   text-transform:uppercase;
   text-decoration-color:#f4f4f448;
   text-align: center;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin: 0px;
 }
 
 .li{
@@ -312,7 +311,7 @@ main{
 .blog{
   box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
   border-radius: 20px;
-  margin: 20px 400px 0px 400px;
+  margin: 20px 400px 20px 400px;
   padding: 50px;
 }
 
@@ -323,7 +322,7 @@ h4, small{
 
 .welcome{
   margin-left: 300px;
-  margin-right: 300px;
+  margin-right: 420px;
 }
 
 .buttonnav{

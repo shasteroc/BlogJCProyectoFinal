@@ -27,7 +27,6 @@ export const Registro = () => {
       email,
       password,
       createdAt: new Date().toISOString(),
-      avatar: "https://avatar.iran.liara.run/public",
     };
     fetch(`${urlApi}/users`, {
       method: "POST",

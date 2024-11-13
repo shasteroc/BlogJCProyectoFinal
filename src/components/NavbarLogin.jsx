@@ -1,16 +1,20 @@
+import { useNavigate } from "react-router-dom";
+
 export const NavbarLogin = () => {
+  const navigate = useNavigate();
+  function cerrar() {
+    navigate('/BlogJCProyectoFinal');
+  }
 
-    const user = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1/users";
-
-    return (
-        <header>
-          <nav className="nav">
-            <ul>
-                <li ><a href="#home"><img src="public\Logo.png" alt="Logo de Travel" className="logo" /></a></li>
-                <li className="welcome li"><a href="#travel">Bienvenido a Travel{user.name}</a></li>
-                <button className="buttonnav">cerrar sesion</button>
-            </ul>
-          </nav>
-        </header>
-    )
+  return (
+      <header>
+        <nav className="nav">
+          <ul>
+              <li ><a href="#home"><img src="public\Logo.png" alt="Logo de Travel" className="logo" /></a></li>
+              <li className="welcome li">Bienvenido a Travel</li>
+              <button className="buttonnav" onClick={() => cerrar()}>Cerrar sesion</button>
+          </ul>
+        </nav>
+      </header>
+  )
 };
