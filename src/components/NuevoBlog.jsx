@@ -88,7 +88,6 @@ export const NuevoBlog = () => {
         <div className="contenedor-responsive" >
           <form onSubmit={onSubmit} className="newBlog">
             <h3 className="newB">Nuevo Blog</h3>
-            <small className="num">Hay {blogs.length} Blogs Publicados</small>
             <input
               type="text"
               placeholder="Lugar"
@@ -119,7 +118,7 @@ export const NuevoBlog = () => {
               className="input"
             ></input>
             <input
-              type="text"
+              type="url"
               placeholder="URL de la imagen"
               name="imageURl"
               onChange={onChange}
