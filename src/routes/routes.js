@@ -8,7 +8,7 @@ import { Blog } from "../components/ListaDeBlogs";
 
 export const router = createBrowserRouter([
   {
-    path: '/BlogJCProyectoFinal',
+    path: '/BlogJCProyectoFinal/',
     Component: LandingPage
   },
   {
