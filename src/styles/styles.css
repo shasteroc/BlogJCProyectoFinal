@@ -334,3 +334,14 @@ h4, small{
   width: 90%;
   height: 100%;
 }
+
+.divB{
+  margin: 0px 400px 0px 400px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+}
