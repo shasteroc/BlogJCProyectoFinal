@@ -118,9 +118,9 @@ export const NuevoBlog = () => {
               className="input"
             ></input>
             <input
-              type="text"
+              type="url"
               placeholder="URL de la imagen"
-              name="imageURl"
+              name="imageUrl"
               onChange={onChange}
               className="input"
             ></input>
@@ -130,12 +130,11 @@ export const NuevoBlog = () => {
             {blog.map((blog) =>
               toEditBlog && toEditBlog.id === blog.id ? (
                 <div className="blogs" key={blog.id}>
-                  <h3>Hola</h3>
                   <input type="text" value={toEditBlog.name} onChange={(e) => setToEditBlog({ ...toEditBlog, name: e.target.value })} />
                   <input type="text" value={toEditBlog.location} onChange={(e) => setToEditBlog({ ...toEditBlog, location: e.target.value })} />
                   <textarea type="text" value={toEditBlog.review} onChange={(e) => setToEditBlog({ ...toEditBlog, content: e.target.value })} />
                   <input type="number" value={toEditBlog.rating} onChange={(e) => setToEditBlog({ ...toEditBlog, rating: e.target.value })} />
-                  <input type="text" value={toEditBlog.imageUrl} onChange={(e) => setToEditBlog({ ...toEditBlog, imageUrl: e.target.value })} />
+                  <input type="url" value={toEditBlog.imageUrl} onChange={(e) => setToEditBlog({ ...toEditBlog, imageUrl: e.target.value })} />
                   <button onClick={() => sendToEditBlog()}>Guardar</button>
                 </div>
               ) : (
@@ -149,9 +148,9 @@ export const NuevoBlog = () => {
                     </div>
                   </div>
                   <h4>{blog.name}</h4>
-                  <h5>{blog.location}</h5>
+                  <h5>Pais: {blog.location}</h5>
                   <p>{blog.review}</p>
-                  <p>{blog.rating}</p>
+                  <p>Calificacion: {blog.rating}</p>
                   <p>{blog.imageUrl}</p>
                 </div>
               )

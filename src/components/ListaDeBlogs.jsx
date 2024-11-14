@@ -39,9 +39,9 @@ export const Blog = () => {
       {blogs.map((blogs) => (
         <div className="blog">
           <h4>{blogs.name}</h4>
-          <p>{blogs.location}</p>
+          <p>Pais: {blogs.location}</p>
           <p>{blogs.review}</p>
-          <p>{blogs.rating}</p>
+          <p>Calificacion: {blogs.rating}</p>
           <img src={blogs.imageUrl} alt="" className="imgblog" />
           <small>publicado por: {blogs.creator} {blogs.userId}</small>
         </div>

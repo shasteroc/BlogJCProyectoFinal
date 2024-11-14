@@ -4,7 +4,9 @@
 }
 
 :root {
-  color-scheme: dark;
+  /*color-scheme: dark;*/
+  background-color: #332843;
+  color: #76508c;
 }
 
 html {
@@ -195,7 +197,7 @@ span{
 }
 
 .nav{
-  background-color: #222;
+  background-color: #1e1725;
   padding: 5px;
   margin: 0px;
   position: fixed;
@@ -232,7 +234,7 @@ img{
 }
 
 footer{
-  background-color: #0c0808;
+  background-color: #130e0c;
 }
 
 h3{
@@ -341,7 +343,13 @@ h4, small{
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  font-size: 20px;
+  font-size: 10px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px rgba(255,255,255,1);
+}
+
+.blogs{
+  padding: 0px 30px 0px 30px;
+  margin: 0px;
+  width: 80%;
 }
