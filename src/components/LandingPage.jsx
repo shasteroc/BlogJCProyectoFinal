@@ -18,7 +18,7 @@ export const LandingPage = () => {
         <img src="img\travel.png" alt="Travel" className="image" />
       </div>
     </main>
-      </>
+    <Footer /></>
     
 
     
