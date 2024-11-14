@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export const NavbarLogin = () => {
   const navigate = useNavigate();
   function cerrar() {
-    navigate('/BlogJCProyectoFinal/');
+    navigate('/');
   }
 
   return (

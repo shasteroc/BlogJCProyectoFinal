@@ -35,11 +35,11 @@ export const Registro = () => {
       },
       body: JSON.stringify(data),
     });
-    navigate("/login");
+    navigate('/Login');
   };
 
   const goLogin = () => {
-    navigate("/BlogJCProyectoFinal/Login");
+    navigate('/Login');
   };
 
   return (

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 export const Navbar = () => {
   const navigate = useNavigate();
   function home() {
-    navigate('/BlogJCProyectoFinal/');
+    navigate('/');
   }
     return (
         <header>

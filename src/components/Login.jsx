@@ -7,7 +7,7 @@ export const Login = () => {
   const [error, setError] = useState(false);
 
   function registro() {
-    navigate('/BlogJCProyectoFinal/Registro');
+    navigate('/Registro');
   }
 
   const submit = async (event) => {
@@ -21,7 +21,7 @@ export const Login = () => {
     const user = users.find(user => user.email === correo && user.password === pass)
     
     if (user) {
-      navigate('/BlogJCProyectoFinal/Blog')
+      navigate('/Blog')
     } else {
       setError(true)
     }
