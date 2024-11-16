@@ -10,8 +10,8 @@ export const NavbarLogin = () => {
       <header>
         <nav className="nav">
           <ul>
-              <li ><a href="#home"><img src="img\Logo.png" alt="Logo" className="logo" /></a></li>
-              <li className="welcome li">Bienvenido a Travel</li>
+              <li ><a><img src="img\Logo.png" alt="Logo" className="logo" /></a></li>
+              <li className="welcome li"><h3>TRAVEL</h3></li>
               <button className="buttonnav" onClick={() => cerrar()}>Cerrar sesion</button>
           </ul>
         </nav>

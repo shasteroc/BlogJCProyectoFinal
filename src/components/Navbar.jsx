@@ -5,15 +5,13 @@ export const Navbar = () => {
     navigate('/');
   }
     return (
-        <header>
-          <nav className="nav">
-            <ul>
-                <li><a onClick={() => home()}><img src="img\Logo.png" alt="Logo" className="logo" /></a></li>
-                <li className="li"><a href="#travel">Travel</a></li>
-                <li className="li"><a href="#contactanos">Contactanos</a></li>
-                <li className="li"><a href="#siguenos">Siguenos</a></li>
-            </ul>
-          </nav>
-        </header>
+      <header>
+      <nav className="nav">
+        <ul>
+            <li ><a onClick={() => home()}><img src="img\Logo.png" alt="Logo" className="logo" /></a></li>
+            <li className="welcome li"><h3>Bienvenido a Travel</h3></li>
+        </ul>
+      </nav>
+    </header>
     )
 };

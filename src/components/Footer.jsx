@@ -1,28 +1,16 @@
 export const Footer = () => {
     return (
         <footer>
-            <div className="footer">
-                <h3 id="contactanos">Contactanos:</h3>
-                
-                <div className="footer-items">
-                    <img src="\img\whatsapp.png" alt="WhatsApp" className="icon" />
-                    <p className="p-footer">+57 323 333 3333</p>
-                    <img src="\img\correo-electronico.png" alt="Correo" className="icon" />
-                    <p className="p-footer">blogtravelgmail.com</p>
-                </div>
+            <div className="divF">
+                <h3>Contactanos:</h3>
+                <li><img src="public\img\correo-electronico.png" className="icon" /> blogtravel@gmail.com</li>
+                <li><img src="public\img\whatsapp.png" className="icon" /> +57 323 333 3333</li>
             </div>
-
-            <div className="footer">
-                <h3 id="siguenos">Siguenos:</h3>
-                <br />
-                <div className="footer-items1">
-                <img src="\img\facebook.png" alt="Facebook" className="icon1" />
-                <p className="p-footer">@BlogTravel</p>
-                <img src="\img\instagram.png" alt="Instagram" className="icon1" />
-                <p className="p-footer">@BlogTravel</p>
-                <img src="\img\tik-tok.png" alt="TikTok" className="icon1" />
-                <p className="p-footer">@BlogTravel</p>
-                </div>
+            <div className="divF">
+                <h3>Siguenos:</h3>
+                <li><img src="public\img\instagram.png" className="icon" /> @blogtravel</li>
+                <li ><img src="public\img\tik-tok.png" className="icon" /> @blogtravel</li>
+                <li><img src="public\img\facebook.png" className="icon" />    @blogtravel</li>
             </div>
         </footer>
     )
