@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import { NavbarLogin } from "./NavbarLogin"; // Importamos NavbarLogin
 import { NuevoBlog } from "./NuevoBlog";
-import { NavbarLogin } from "./NavbarLogin";
 
 export const Blog = () => {
   const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
@@ -16,37 +16,56 @@ export const Blog = () => {
   const getBlogs = async () => {
     const response = await fetch(`${urlApi}/blogs`);
     const data = await response.json();
-    data.forEach((blogs) => {
-      const user = users.find((user) => user.id === blogs.userId);
-      blogs.user = user;
+
+    // Asociamos el usuario a cada blog usando userId
+    const updatedBlogs = data.map((blog) => {
+      const user = users.find((user) => user.id === blog.userId); // Asegúrate de que el `userId` se esté utilizando aquí
+      return { ...blog, user }; // Añadimos el objeto usuario a cada blog
     });
-    setBlogs(data);
+
+    setBlogs(updatedBlogs);
   };
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, []); // Se obtiene la lista de usuarios una vez que se monta el componente
 
   useEffect(() => {
-    getBlogs();
-  }, [users]);
+    if (users.length > 0) {
+      getBlogs(); // Solo cargamos los blogs después de obtener los usuarios
+    }
+  }, [users]); // Cuando los usuarios cambian, cargamos los blogs
 
+  // Obtener el usuario logueado desde localStorage
+  const loggedUser = JSON.parse(localStorage.getItem("creator"));
+  console.log(loggedUser);
 
   return (
-      <><NavbarLogin />
-      <NuevoBlog />
-      <main className="mainB">
-      {blogs.map((blogs) => (
-        <div className="blog">
-          <h4>{blogs.name}</h4>
-          <p>Pais: {blogs.location}</p>
-          <p>{blogs.review}</p>
-          <p>Calificacion: {blogs.rating}</p>
-          <img src={blogs.imageUrl} alt="" className="imgblog" />
-          <small>publicado por: {blogs.creator} {blogs.userId}</small>
-        </div>
-      ))}
-    </main></>
+    <>
+      <NavbarLogin /> 
+      <main id="home">
+        {blogs.map((blog) => (
+          <div className="blog" key={blog.id}>
+            <h4>{blog.name}</h4>
+            <p>Pais: {blog.location}</p>
+            <p>{blog.review}</p>
+            <p>Calificación: {blog.rating}</p>
+            {blog.imageUrl && (
+              <img src={blog.imageUrl} alt={blog.name} className="imgblog" />
+            )}
+            <small>Publicado por: {blog.user ? blog.user.name : "Desconocido"}</small>
+            <br />
+            <small>Fecha: {new Date(blog.createdAt).toLocaleDateString()}</small>
+          </div>
+        ))}
 
+        {/* Mostrar el nombre del usuario logueado en el blog */}
+        {loggedUser && (
+          <div className="logged-user-info">
+            <p>Usuario logueado: {loggedUser.name}</p>
+          </div>
+        )}
+      </main>
+    </>
   );
 };

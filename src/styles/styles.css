@@ -4,13 +4,14 @@
 }
 
 :root {
-  /*color-scheme: dark;*/
   background-color: #332843;
   color: #ffffff;
 }
 
 html {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 .login {
@@ -28,6 +29,7 @@ form {
   box-shadow: 0px 0px 10px 0px #ffffff;
   background-color: #120f1b;
 }
+
 
 h1 {
   text-align: center;
@@ -49,6 +51,9 @@ label {
 input {
   border-radius: 10px;
   padding: 10px;
+  background-color: #120f1b;
+  color: #ffffff;
+  box-shadow: 0px 0px 5px 0px #ffffff;
 }
 
 button{
@@ -116,8 +121,12 @@ ul{
   justify-content: center;
   padding: 0px;
   margin: 0px;
-  margin-right: 30px;
   margin-bottom: 10px;
+}
+
+.li{
+  margin: 0px;
+  width: 300px;
 }
 
 .logo{
@@ -151,7 +160,7 @@ body{
 .contenedor1{
   columns: 2;
   padding-top: 90px;
-  margin-right: 50px;
+  margin-right: 60px;
 }
 
 span{
@@ -179,22 +188,65 @@ img{
   background-color: #ffffff;
   padding: 2px;
   margin: 0px;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 
 footer{
   background-color: #130e0c;
   display: flex;
-  margin-top: 70px;
-  padding: 8px;
+  justify-content: center;
+  padding: 10px 0px 10px 0px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
+
+.liF{
+  font-size: 10px;
+  margin: 0px;
+  padding: 0px;
+  width: 200px;
+}
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  padding-right: 40px;  /* Da espacio al botón */
+}
+
+.toggle-password {
+  position: absolute;
+  left: 90px; /* Ubica el botón en la parte derecha */
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #332843;
+}
+
+.toggle-password:hover {
+  text-decoration: underline;
+}
+
 .divF{
   display: flex;
   justify-content: center;
   padding: 5px;
   margin: 0px;
 }
+
+.h3f{
+  margin-top: 10px;
+  margin-left: 10px;
+  box-shadow: 2px 5px 2px 2px #e2c9ff;
+  border-radius: 50%;
+  padding-left: 2px;
+  padding-right: 2px;
+} 
 
 h3{
   padding: 0px;
@@ -204,8 +256,27 @@ h3{
 }
 
 main{
-  padding-top: 80px;
+  padding-top: 100px;
 }
+
+.userInfo, li{
+  padding: 0px;
+  margin: 0px;
+  padding-left: 100px;
+  width: 100px;
+  align-items: center;
+}
+
+.botonL{
+margin: 0px;
+padding: 8px;
+}
+
+.ulL{
+  padding: 0px;
+  margin: 0px;
+}
+
 
 .newBlog{
   margin: 0px 400px 0px 400px;
@@ -266,7 +337,7 @@ main{
   background-color: #120f1b;
 }
 
-h4, small{
+h4, h5, small{
   padding: 10px;
   padding-left: 20px;
 }
@@ -292,13 +363,121 @@ h4, small{
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  font-size: 10px;
+  font-size: 15px;
+  align-items: center;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px #ffffff;
 }
+
+.action{
+  cursor: pointer;
+  margin-left: 320px;
+}
+
 
 .blogs{
   padding: 0px 30px 0px 30px;
   margin: 0px;
   width: 80%;
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  .login {
+    padding: 10px;
+    height: auto;
+  }
+
+  form {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .newBlog {
+    margin: 0px;
+    padding: 10px;
+    width: 90%;
+  }
+
+  .input, .textarea {
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .divB {
+    margin: 0px 20px;
+    width: 100%;
+  }
+
+  .blogs {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .logo {
+    width: 20px;
+  }
+
+  .nav {
+    position: static;
+  }
+
+  footer {
+    position: static;
+    padding: 5px;
+  }
+
+  .password-container input {
+    width: 90%;
+  }
+
+  .toggle-password {
+    left: 80%;
+  }
+}
+
+/* Estilos para pantallas medianas (tabletas) */
+@media (min-width: 600px) and (max-width: 1024px) {
+  .newBlog {
+    margin: 0px 50px;
+    padding: 20px;
+  }
+
+  .input, .textarea {
+    width: 90%;
+  }
+
+  .divB {
+    margin: 0px 50px;
+  }
+
+  .blogs {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .password-container input {
+    width: 80%;
+  }
+}
+
+/* Estilos para pantallas grandes (escritorios) */
+@media (min-width: 1024px) {
+  .newBlog {
+    margin: 0px 400px;
+    padding: 20px;
+  }
+
+  .input, .textarea {
+    width: 200px;
+  }
+
+  .divB {
+    margin: 0px 400px;
+  }
+
+  .blogs {
+    width: 80%;
+  }
 }

@@ -21,7 +21,7 @@ export const DeleteIcon = () => {
           <g
             id="Dribbble-Light-Preview"
             transform="translate(-179.000000, -360.000000)"
-            fill="#000000"
+            fill="#e2c9ff"
           >
             <g id="icons" transform="translate(56.000000, 160.000000)">
               <path
