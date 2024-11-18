@@ -8,16 +8,29 @@ export const NuevoBlog = () => {
   const [review, setReview] = useState("");
   const [rating, setRating] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [creator, setCreator] = useState({});
+  const [creator, setCreator] = useState(null); // Inicializar como null
   const [blogs, setBlogs] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Para verificar si el usuario está logueado
+  const [publicationMessage, setPublicationMessage] = useState(""); // Mensaje de éxito después de publicar
+
+  // Función para formatear la fecha de publicación
+  const formatDate = (date) => {
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`; // Formato DD/MM/YYYY
+  };
 
   useEffect(() => {
     const creator = JSON.parse(localStorage.getItem("creator"));
     if (creator && creator.id) {
       setCreator(creator);
+      setIsLoggedIn(true); // Usuario está logueado
       fetch(`${urlApi}/blogs`)
         .then((response) => response.json())
-        .then((data) => setBlogs(data.filter((blog) => blog.creator === creator.id)));
+        .then((data) => setBlogs(data.filter((blog) => blog.userId === creator.id)));
+    } else {
+      setIsLoggedIn(false); // Usuario no logueado
     }
   }, []);
 
@@ -38,11 +51,22 @@ export const NuevoBlog = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+
+    // Verificar si el usuario está logueado
+    if (!isLoggedIn) {
+      alert("Debes iniciar sesión para publicar un blog.");
+      return;
+    }
+
     // Verificar que todos los campos estén llenos
     if (!name || !location || !review || !rating || !imageUrl) {
       alert("Todos los campos son requeridos");
       return;
     }
+
+    // Crear la fecha de publicación
+    const currentDate = new Date();
+    const formattedDate = formatDate(currentDate);
 
     const data = {
       name,
@@ -51,6 +75,7 @@ export const NuevoBlog = () => {
       rating,
       imageUrl,
       userId: creator.id, // Asegúrate de usar `userId` para asociar el blog al usuario logueado
+      createdAt: formattedDate, // Fecha de publicación
     };
 
     try {
@@ -65,6 +90,13 @@ export const NuevoBlog = () => {
       if (response.ok) {
         const newBlog = await response.json(); // La respuesta debería contener el blog creado
         setBlogs([...blogs, newBlog]); // Agregar el nuevo blog al estado
+        setPublicationMessage(`Blog publicado con éxito el ${formattedDate}`);
+        // Limpiar los campos después de publicar
+        setName("");
+        setLocation("");
+        setReview("");
+        setRating("");
+        setImageUrl("");
       } else {
         throw new Error("Error al crear el blog");
       }
@@ -75,46 +107,68 @@ export const NuevoBlog = () => {
   };
 
   return (
-    <><NavbarLogin /><main id="home">
-      <div className="newBlog">
-        <form onSubmit={onSubmit} className="formP">
-          <h3 className="newB">Nuevo Blog</h3>
-          <input
-            type="text"
-            placeholder="Lugar"
-            name="name"
-            onChange={onChange}
-            className="input" />
-          <input
-            type="text"
-            placeholder="Pais"
-            name="location"
-            onChange={onChange}
-            className="input" />
-          <textarea
-            placeholder="Reseña"
-            name="review"
-            onChange={onChange}
-            className="textarea" />
-          <input
-            type="number"
-            placeholder="Calificación del 1 al 10"
-            min="1"
-            max="10"
-            name="rating"
-            onChange={onChange}
-            className="input" />
-          <input
-            type="url"
-            placeholder="URL de la imagen"
-            name="imageUrl"
-            onChange={onChange}
-            className="input" />
-          <button type="submit" className="publicar">
-            Publicar
-          </button>
-        </form>
-      </div>
-    </main></>
+    <>
+      <NavbarLogin />
+      <main id="home">
+        <div className="newBlog">
+          {/* Si no está logueado, mostrar un mensaje y deshabilitar el formulario */}
+          {!isLoggedIn && <p>Debes iniciar sesión para poder publicar un blog.</p>}
+
+          {/* Formulario de publicación */}
+          {isLoggedIn && (
+            <form onSubmit={onSubmit} className="formP">
+              <h3 className="newB">Nuevo Blog</h3>
+              <input
+                type="text"
+                placeholder="Lugar"
+                name="name"
+                onChange={onChange}
+                className="input"
+                value={name}
+              />
+              <input
+                type="text"
+                placeholder="País"
+                name="location"
+                onChange={onChange}
+                className="input"
+                value={location}
+              />
+              <textarea
+                placeholder="Reseña"
+                name="review"
+                onChange={onChange}
+                className="textarea"
+                value={review}
+              />
+              <input
+                type="number"
+                placeholder="Calificación del 1 al 10"
+                min="1"
+                max="10"
+                name="rating"
+                onChange={onChange}
+                className="input"
+                value={rating}
+              />
+              <input
+                type="url"
+                placeholder="URL de la imagen"
+                name="imageUrl"
+                onChange={onChange}
+                className="input"
+                value={imageUrl}
+              />
+              <button type="submit" className="publicar">
+                Publicar
+              </button>
+            </form>
+          )}
+
+          {/* Mostrar mensaje de éxito cuando se publique */}
+          {publicationMessage && <p>{publicationMessage}</p>}
+        </div>
+      </main>
+    </>
   );
 };
