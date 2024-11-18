@@ -159,10 +159,10 @@ export const Perfil = () => {
     <>
       <NavbarLogin />
       <main id="home">
-        <h1 className="newBlog">Mi perfil</h1>
         {error && <div className="error-message">{error}</div>}
         {user ? (
           <form onSubmit={handleSubmit} className="formP">
+            <h1 className="newBlog">Mi perfil</h1>
             <fieldset>
               <label>
                 <span>Nombre</span>

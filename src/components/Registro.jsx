@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navbar } from "./Navbar";
+import { NavbarLogin } from "./NavbarLogin";
 
 export const Registro = () => {
   const urlApi = "https://6622071827fcd16fa6c8818c.mockapi.io/api/v1";
@@ -44,7 +44,7 @@ export const Registro = () => {
 
   return (
     <body>
-      <Navbar />
+      <NavbarLogin />
       <main className="login">
         <div className="contenedor-responsive">
         < form onSubmit={onSubmit}>

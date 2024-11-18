@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Navbar } from "./Navbar";
+import { NavbarLogin } from "./NavbarLogin";
 import { Link } from "react-router-dom";  // Para enlaces en lugar de onClick
 
 export const Login = () => {
@@ -47,7 +47,7 @@ export const Login = () => {
 
   return (
     <>
-      <Navbar />
+      <NavbarLogin />
       <main className="login">
         <form onSubmit={submit}>
           <h1>Inicia sesión</h1>
