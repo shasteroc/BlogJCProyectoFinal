@@ -273,14 +273,8 @@ padding: 8px;
 }
 
 .ulL{
-  padding: 0px;
-  margin: 0px;
-}
-
-
-.newBlog{
-  margin: 0px 400px 0px 400px;
   padding: 20px;
+  margin: 0px;
 }
 
 .num{
@@ -299,6 +293,29 @@ padding: 8px;
   font-size: 30px;
   background-color: #120f1b;
 }
+
+.contenedor2{
+  margin-top: 20px;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+/* Contenedor flex para centrar */
+.newB-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%; /* Si el contenedor tiene altura, asegúrate de que se centre verticalmente */
+}
+
+h2.newB {
+  text-align: center; /* Centra el texto dentro de h2 */
+  margin: 0;
+  font-size: 24px;
+  background-color: #332843;
+}
+
 
 .input, .textarea{
   display: flex;
@@ -381,103 +398,53 @@ h4, h5, small{
   width: 80%;
 }
 
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-  .login {
-    padding: 10px;
-    height: auto;
+.divP {
+  margin: 0px 400px 0px 400px;
+  padding: 20px;
+  margin-top: 20px;
+  font-size: 15px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 0px #ffffff;
+  
+  /* Eliminamos display: flex y usaremos block por defecto */
+  display: block;
+  /* Aseguramos que los hijos se alineen verticalmente */
+  text-align: center; /* Para centrar el texto dentro de cada div si es necesario */
+}
+
+.formP {
+  margin: 0px 400px;  /* Márgenes para centrar el contenedor */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;  /* Asegura que los elementos se apilen verticalmente */
+  justify-content: center;  /* Centra los elementos dentro del contenedor */
+  align-items: center;  /* Centra los elementos horizontalmente dentro del contenedor */
+}
+
+@media (max-width: 1233px) {
+  .formP {
+    padding: 20px;
+    margin: 0px 10px;
   }
 
-  form {
-    padding: 10px;
-    width: 100%;
-  }
-
-  .newBlog {
-    margin: 0px;
-    padding: 10px;
-    width: 90%;
-  }
-
-  .input, .textarea {
-    width: 90%;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .divB {
-    margin: 0px 20px;
-    width: 100%;
-  }
-
-  .blogs {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .logo {
-    width: 20px;
+  .divP {
+    margin: 0px 10px;
   }
 
   .nav {
-    position: static;
-  }
-
-  footer {
-    position: static;
-    padding: 5px;
-  }
-
-  .password-container input {
-    width: 90%;
-  }
-
-  .toggle-password {
-    left: 80%;
-  }
-}
-
-/* Estilos para pantallas medianas (tabletas) */
-@media (min-width: 600px) and (max-width: 1024px) {
-  .newBlog {
-    margin: 0px 50px;
-    padding: 20px;
+    padding: 10px;
   }
 
   .input, .textarea {
-    width: 90%;
+    width: 100%;
   }
 
-  .divB {
-    margin: 0px 50px;
-  }
-
-  .blogs {
-    width: 90%;
-    padding: 15px;
-  }
-
-  .password-container input {
-    width: 80%;
-  }
-}
-
-/* Estilos para pantallas grandes (escritorios) */
-@media (min-width: 1024px) {
-  .newBlog {
-    margin: 0px 400px;
+  .blog {
+    margin: 10px;
     padding: 20px;
   }
 
-  .input, .textarea {
-    width: 200px;
-  }
-
-  .divB {
-    margin: 0px 400px;
-  }
-
-  .blogs {
-    width: 80%;
+  .contenedor1 {
+    margin-right: 10px;
   }
 }

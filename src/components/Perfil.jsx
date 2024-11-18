@@ -162,7 +162,7 @@ export const Perfil = () => {
         <h1 className="newBlog">Mi perfil</h1>
         {error && <div className="error-message">{error}</div>}
         {user ? (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="formP">
             <fieldset>
               <label>
                 <span>Nombre</span>
@@ -206,8 +206,10 @@ export const Perfil = () => {
           <p>Cargando perfil...</p>
         )}
         <br />
-        <h2 className="h2">Mis publicaciones</h2>
-        <div className="divB">
+        <div class="newB-container">
+          <h2 class="newB">Mis Publicaciones</h2>
+        </div>
+        <div className="divP">
           {Array.isArray(blogs) && blogs.length > 0 ? (
             blogs.map((blogItem) =>
               toEditBlog && toEditBlog.id === blogItem.id ? (
@@ -256,6 +258,8 @@ export const Perfil = () => {
                     <img src={blogItem.imageUrl} alt={blogItem.name} className="imgblog" />
                   )}
                   <small>Publicado el: {formatDate(blogItem.createdAt)}</small> {/* Fecha de creación */}
+                  <p>-------------------------------------------</p>
+                  <br />
                 </div>
               )
             )

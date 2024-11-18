@@ -76,7 +76,7 @@ export const NuevoBlog = () => {
 
   return (
     <><NavbarLogin /><main id="home">
-      <div className="contenedor-responsive">
+      <div className="contenedor2">
         <form onSubmit={onSubmit} className="newBlog">
           <h3 className="newB">Nuevo Blog</h3>
           <input
